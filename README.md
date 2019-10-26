@@ -1,37 +1,48 @@
 # ArduinoLibrary_LCD12864Serial
 
 #### 介绍
-用于arduino的，通过串行接口驱动带字库LCD12864的库。
+
+    LCD12864带中文字库驱动  适用ARDUINO平台
+
+    软件模拟spi，可定义任意一引脚。
+    仅支持串行模式（节省引脚，仅需三个引脚即可）。
+    只支持软件给12864复位，没有配置复位引脚。
+
+
+#### 适用硬件
+
+使用ST7920芯片的12864，需要短接JP2焊盘中的S。
+![12864](docs/image/LCD12864_P1.jpg)
 
 #### 软件架构
-软件架构说明
+
+    通过构造函数指定12864使用的三个引脚
 
 
 #### 安装教程
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+1.  将发行版解压到Arduino安装目录中的libraries目录中。（可选）
+
 
 #### 使用说明
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+1.  使用"安装教程"中的方式进行安装，并使用#include <lcd12864b_s.h>进行引入
+2.  将代码复制到工程中，并使用#include "lcd12864b_s.h"进行引入
 
-#### 参与贡献
+#### 示例代码
+在arduino中：
+```
+#include "lcd12864b_s.h"
+LCD12864B_S lcd(PA4,PA5,PA6);
+void setup() {
+    lcd.init();
+    lcd.printfxy(0,0,"hello,%s","world");
+    delay(2000);
+    lcd.cls();
+    lcd.printfxy(0,1,"hello,%s","wrold");
+}
+```
 
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
 
 
-#### 码云特技
 
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  码云官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解码云上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是码云最有价值开源项目，是码云综合评定出的优秀开源项目
-5.  码云官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  码云封面人物是一档用来展示码云会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
