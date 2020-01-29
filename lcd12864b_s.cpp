@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include <stdarg.h>
 
+#define delay_us delayMicroseconds
+
 LCD12864B_S::LCD12864B_S(uint8_t _clk, uint8_t _data, uint8_t _cs){
     clk = _clk;
     data = _data;
